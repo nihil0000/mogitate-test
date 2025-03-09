@@ -28,10 +28,10 @@
 }
 
 .main__container {
-    height: 100vh;
+    height: calc(100vh - 60px);
     font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     background-color: #F8F8F8;
 }
