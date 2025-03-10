@@ -8,7 +8,9 @@
 <div class="container">
     <div class="title__wrapper">
         <p class="title">商品一覧</p>
-        <button class="btn-add-product">+ 商品を追加</button>
+        <a href="{{ route('products.create') }}" class="btn__store-product">
+            <button class="btn-add-product">+ 商品を追加</button>
+        </a>
     </div>
 
     <section class="product-list-wrapper">
