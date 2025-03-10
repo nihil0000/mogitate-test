@@ -59,11 +59,28 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('create');
+        $seasons = Season::all();
+
+        return view('create', compact('seasons'));
     }
 
     public function store(Request $request)
     {
+        $file = $request->image;
+        $filename = $file->getClientOriginalName(); // Get the original filename of the uploaded file
+        $file->storeAs('public/images', $filename); // Store the uploaded file
+        $imagePath = 'images/' . $filename; // Update the file path in the database
 
+        $product = Product::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'description' => $request->description,
+                'image' => $imagePath,
+        ]);
+
+        $selectedSeasons = $request->input('seasons', []);
+        $product->seasons()->sync($selectedSeasons);
+
+        return redirect()->route('products.index');
     }
 }
