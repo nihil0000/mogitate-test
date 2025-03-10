@@ -1,0 +1,82 @@
+.form__container {
+    padding: 70px 356px;
+}
+
+.breadcrumb {
+    margin-bottom: 10px;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #0085FF;
+}
+
+.product-details__top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+}
+
+.product-img__wrapper {
+    width: calc((100% - 30px) / 2);
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-info {
+    width: calc((100% - 30px) / 2);
+}
+
+/* .season-select__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+} */
+
+/* チェックボックスを隠す */
+/* .season-select__checkbox {
+    display: none;
+} */
+
+/* 丸いカスタムチェックボックス */
+/* .custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0085FF;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: background 0.3s, border 0.3s;
+} */
+
+/* 選択時に背景を変える */
+/* .season-select__checkbox:checked + .custom-checkbox {
+    background-color: #0085FF;
+    border-color: #0085FF;
+} */
+
+/* チェックマークを追加 */
+/* .season-select__checkbox:checked + .custom-checkbox::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* ホバー時のアニメーション */
+/* .season-select__label:hover .custom-checkbox {
+    border-color: #005FCC;
+} */
