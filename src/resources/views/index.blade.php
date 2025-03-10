@@ -9,7 +9,7 @@
     <div class="title__wrapper">
         <p class="title">商品一覧</p>
         <a href="{{ route('products.create') }}" class="btn__store-product">
-            <button class="btn-add-product">+ 商品を追加</button>
+            <button class="btn__add-product">+ 商品を追加</button>
         </a>
     </div>
 
@@ -17,24 +17,30 @@
         <!-- Search form -->
         <form class="search__form" action="{{ route('products.search') }}" method="get">
             <!-- Search by name -->
-            <input type="text" class="input-search" name="name" value="{{ request('name') }}">
-            <button class="btn-search">検索</button>
+            <input type="text" class="input-search" name="name" value="{{ request('name') }}" placeholder="商品名で検索">
+            <button type="submit" class="btn-search">検索</button>
 
             <!-- Sort by price -->
-            <p class="title-sort">価格順で表示</p>
-            <select name="sort_price" id="" class="sort-price" onchange="this.form.submit()">
-                <option value="">-</option>
-                <option value="asc" {{ request('sort_price') == 'asc' ? 'selected' : '' }}>安い順に表示</option>
-                <option value="desc" {{ request('sort_price') == 'desc' ? 'selected' : '' }}>高い順に表示</option>
-            </select>
+            <div class="sort__group">
+                <p class="sort-title">価格順で表示</p>
+
+                <div class="custom-select">
+                    <select name="sort_price" id="" class="sort-price" onchange="this.form.submit()">
+                        <option value="">価格で並び替え</option>
+                        <option value="asc" {{ request('sort_price') == 'asc' ? 'selected' : '' }}>安い順に表示</option>
+                        <option value="desc" {{ request('sort_price') == 'desc' ? 'selected' : '' }}>高い順に表示</option>
+                    </select>
+                </div>
+
+                @if(request('sort_price'))
+                <div class="selected-sort">
+                    <span>{{ request('sort_price') == 'asc' ? '安い順に表示' : '高い順に表示' }}</span>
+                    <a href="{{ route('products.index', ['query' => request('query')]) }}" class="clear-sort">×</a>
+                </div>
+                @endif
+            </div>
         </form>
 
-        @if(request('sort_price'))
-        <div class="selected-sort">
-            <span>{{ request('sort_price') == 'asc' ? '安い順に表示' : '高い順に表示' }}</span>
-            <a href="{{ route('products.index', ['query' => request('query')]) }}" class="clear-sort">✖</a>
-        </div>
-        @endif
 
         <div class="product-list">
             <div class="product__cards">

@@ -1,9 +1,11 @@
 .container {
-    height: 100%;
-    width: 100%;
+    margin: 0 auto;
     padding: 70px 0px;
+    height: 100%;
+    max-width: 1512px;
 }
 
+/* title and button to add product */
 .title__wrapper {
     margin-bottom: 20px;
     width: 100%;
@@ -16,44 +18,107 @@
     font-size: 32px;
 }
 
-.btn-add-product {
+.btn__add-product {
+    padding: 13px 20px;
     font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFA929;
 }
 
+
+/* product list */
 .product-list-wrapper {
     width: 100%;
     padding: 0px 40px;
     display: flex;
 }
 
+/* keyword search */
 .search__form {
     width: 240px;
     display: flex;
     flex-direction: column;
 }
 
+.input-search {
+    margin-bottom: 20px;
+    padding: 14.5px 10px;
+    border-radius: 25px;
+    border: 1px solid #E0DFDE;
+    font-size: 14px;
+}
+
+.btn-search {
+    margin-bottom: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F5C800;
+    font-size: 16px;
+}
+
+/* price sort */
+.sort__group {
+    border-bottom: 1px solid #E0DFDE;
+}
+
+.sort-title {
+    margin-bottom: 20px;
+}
+
+.custom-select {
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E0DFDE;
+}
+
+/* ▼ toggle button */
+.custom-select::after {
+    content: "▼"; /* 逆三角形 */
+    font-size: 14px;
+    color: #8B7969;
+    position: absolute;
+    right: 5px; /* `select` の右端から10pxの位置 */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* クリックを select に通す */
+}
+
 .sort-price {
+    padding: 11px 10px;
+    border-radius: 5px;
+    border: 1px solid #E0DFDE;
     width: 240px;
+    appearance: none;
+    font-size: 14px;
 }
 
 .selected-sort {
     display: inline-flex;
     align-items: center;
     background-color: #fff;
-    border: 2px solid #FFC107;
-    border-radius: 20px;
-    padding: 5px 10px;
+    border: 1px solid #F5C800;
+    border-radius: 21px;
+    padding: 10px;
     font-size: 14px;
-    color: #333;
-    margin-top: 10px;
+    color: #4B4B4B;
+    margin-bottom: 20px;
 }
 
-.selected-sort a.clear-sort {
+.clear-sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 10px;
     text-decoration: none;
-    color: #FFC107;
-    font-weight: bold;
+    width: 15px;
+    height: 15px;
+    color: #F5C800;
     cursor: pointer;
+    border: 1px solid #F5C800;
+    border-radius: 50%;
+    font-size: 12px;
 }
 
 .product-list {
