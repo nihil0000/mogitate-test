@@ -11,9 +11,14 @@ use App\Models\ProductSeason;
 class ProductController extends Controller
 {
     // Product List
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        // $products = Product::all();
+        $products = Product::query()
+            ->SearchByName($request->name)
+            ->SortByPrice($request->sort_price)
+            ->get();
+
         return view('index', compact('products'));
     }
 

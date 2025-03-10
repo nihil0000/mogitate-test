@@ -14,16 +14,27 @@
     </div>
 
     <section class="product-list-wrapper">
-        <div class="search__wrapper">
-            <input type="text" class="input-search">
+        <!-- Search form -->
+        <form class="search__form" action="{{ route('products.search') }}" method="get">
+            <!-- Search by name -->
+            <input type="text" class="input-search" name="name" value="{{ request('name') }}">
             <button class="btn-search">検索</button>
 
+            <!-- Sort by price -->
             <p class="title-sort">価格順で表示</p>
-            <select name="" id="" class="sort-price">
-                <option value=""></option>
+            <select name="sort_price" id="" class="sort-price" onchange="this.form.submit()">
+                <option value="">-</option>
+                <option value="asc" {{ request('sort_price') == 'asc' ? 'selected' : '' }}>安い順に表示</option>
+                <option value="desc" {{ request('sort_price') == 'desc' ? 'selected' : '' }}>高い順に表示</option>
             </select>
-        </div>
+        </form>
 
+        @if(request('sort_price'))
+        <div class="selected-sort">
+            <span>{{ request('sort_price') == 'asc' ? '安い順に表示' : '高い順に表示' }}</span>
+            <a href="{{ route('products.index', ['query' => request('query')]) }}" class="clear-sort">✖</a>
+        </div>
+        @endif
 
         <div class="product-list">
             @foreach ($products as $product)
