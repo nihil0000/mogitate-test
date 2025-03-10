@@ -22,7 +22,7 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <p class="header__title">mogitate</p>
+            <a href="{{ route('products.index') }}" class="header__title">mogitate</a>
         </div>
     </header>
 
