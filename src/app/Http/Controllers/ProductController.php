@@ -17,7 +17,7 @@ class ProductController extends Controller
         $products = Product::query()
             ->SearchByName($request->name)
             ->SortByPrice($request->sort_price)
-            ->get();
+            ->paginate(6);
 
         return view('index', compact('products'));
     }
