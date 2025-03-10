@@ -14,18 +14,33 @@
         <div class="product__group">
             <p class="product__item">商品名</p>
             <input type="text" class="product__input" name="name" placeholder="商品名を入力">
+
+            <!-- validation message -->
+            @error('name')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <!-- price -->
         <div class="product__group">
             <p class="product__item">値段</p>
             <input type="text" class="product__input" name="price" placeholder="値段を入力">
+
+            <!-- validation message -->
+            @error('price')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <!-- image -->
         <div class="product__group">
             <p class="product__item">商品画像</p>
             <input type="file" class="product__input" name="image">
+
+            <!-- validation message -->
+            @error('image')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <!-- season -->
@@ -39,12 +54,22 @@
                 {{ $season->name }}
                 </label>
             @endforeach
+
+            <!-- validation message -->
+            @error('season')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <!-- description -->
         <div class="product__description">
             <p class="product__item">商品説明</p>
             <textarea name="description" class="description__input"></textarea>
+
+            <!-- validation message -->
+            @error('description')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <!-- form button -->

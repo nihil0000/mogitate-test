@@ -20,22 +20,36 @@
         <div class="product-details__top">
             <!-- image -->
             <div class="product-img__wrapper">
-                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-img">
-                <input type="file" name="image" class="file-input" accept="image/*">
+                <input type="file" name="image" class="file-input" accept="image/*" value="{{ old('image') }}">
+
+                <!-- validation message -->
+                @error('image')
+                    <p class="form__error-msg">{{ $message }}</p>
+                @enderror
             </div>
 
             <!-- name, price, season -->
             <div class="product-info">
-                <!-- Name -->
+                <!-- name -->
                 <div class="product-info__group">
                     <p class="product-info__item">商品名</p>
-                    <input type="text" name="name" class="product-name__input" value="{{ $product->name }}" placeholder="{{ $product->name }}">
+                    <input type="text" name="name" class="product-name__input" value="{{ old('name') }}" placeholder="{{ $product->name }}">
+
+                    <!-- validation message -->
+                    @error('name')
+                        <p class="form__error-msg">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- price -->
                 <div class="product-info__group">
                     <p class="product-info__item">値段</p>
-                    <input type="text" name="price" class="product-price__input" value="{{ $product->price }}" placeholder="{{ $product->price }}">
+                    <input type="text" name="price" class="product-price__input" value="{{ old('price') }}" placeholder="{{ $product->price }}">
+
+                    <!-- validation message -->
+                    @error('price')
+                        <p class="form__error-msg">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- season -->
@@ -48,6 +62,11 @@
                         {{ $season->name }}
                         </label>
                     @endforeach
+
+                    <!-- validation message -->
+                    @error('season')
+                        <p class="form__error-msg">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -55,7 +74,12 @@
         <!-- description -->
         <div class="product-description">
             <p class="product-info__item">商品説明</p>
-            <textarea name="description" class="description__input" placeholder="{{ $product->description }}">{{ $product->description }}</textarea>
+            <textarea name="description" class="description__input" placeholder="{{ $product->description }}">{{ old('description') }}</textarea>
+
+            <!-- validation message -->
+            @error('description')
+                <p class="form__error-msg">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="button__wrapper">

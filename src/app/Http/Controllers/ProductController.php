@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
-use App\Models\ProductSeason;
+use App\Http\Requests\RegisterRequest;
 
 
 class ProductController extends Controller
@@ -30,7 +30,7 @@ class ProductController extends Controller
         return view('show', compact('product', 'seasons'));
     }
 
-    public function update(Request $request, $id)
+    public function update(RegisterRequest $request, $id)
     {
         $product = Product::find($id);
 
@@ -69,7 +69,7 @@ class ProductController extends Controller
         return view('create', compact('seasons'));
     }
 
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         $file = $request->image;
         $filename = $file->getClientOriginalName(); // Get the original filename of the uploaded file
