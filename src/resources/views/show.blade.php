@@ -20,6 +20,7 @@
         <div class="product-details__top">
             <!-- image -->
             <div class="product-img__wrapper">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-img">
                 <input type="file" name="image" class="file-input" accept="image/*" value="{{ old('image') }}">
 
                 <!-- validation message -->
@@ -33,7 +34,7 @@
                 <!-- name -->
                 <div class="product-info__group">
                     <p class="product-info__item">商品名</p>
-                    <input type="text" name="name" class="product__input" value="{{ old('name') }}" placeholder="商品名を入力">
+                    <input type="text" name="name" class="product__input" value="{{ old('name', $product->name) }}" placeholder="商品名を入力">
 
                     <!-- validation message -->
                     @error('name')
@@ -44,7 +45,7 @@
                 <!-- price -->
                 <div class="product-info__group">
                     <p class="product-info__item">値段</p>
-                    <input type="text" name="price" class="product__input" value="{{ old('price') }}" placeholder="値段を入力">
+                    <input type="text" name="price" class="product__input" value="{{ old('price', $product->price) }}" placeholder="値段を入力">
 
                     <!-- validation message -->
                     @error('price')
@@ -75,7 +76,7 @@
         <!-- description -->
         <div class="product-description">
             <p class="product-info__item">商品説明</p>
-            <textarea name="description" class="description-textarea" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
+            <textarea name="description" class="description-textarea" placeholder="商品の説明を入力">{{ old('description', $product->description) }}</textarea>
 
             <!-- validation message -->
             @error('description')

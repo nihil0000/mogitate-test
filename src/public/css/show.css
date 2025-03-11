@@ -29,8 +29,9 @@
 .product-details__top {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     gap: 30px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 /* product image */
