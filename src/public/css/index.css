@@ -129,7 +129,7 @@
 .product__cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 20px;
     width: 100%;
 }
