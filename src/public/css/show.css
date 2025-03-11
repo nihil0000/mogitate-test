@@ -1,9 +1,14 @@
 .form__container {
+    margin: 0 auto;
     padding: 70px 356px;
+    max-width: 1512px;
 }
 
+
+/* breadcrumb */
 .breadcrumb {
     margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .breadcrumb-link {
@@ -11,6 +16,16 @@
     color: #0085FF;
 }
 
+
+/* validation */
+.form__error-msg {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #FD0707;
+}
+
+
+/* product details upper half */
 .product-details__top {
     display: flex;
     justify-content: space-between;
@@ -18,6 +33,7 @@
     gap: 30px;
 }
 
+/* product image */
 .product-img__wrapper {
     width: calc((100% - 30px) / 2);
 }
@@ -28,18 +44,34 @@
     margin-bottom: 10px;
 }
 
+/* product name and price */
 .product-info {
     width: calc((100% - 30px) / 2);
 }
 
-/* .season-select__label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.product-info__group {
+    margin-bottom: 30px;
+}
+
+.product-info__item {
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.product__input {
+    padding: 11px 10px;
+    width: 100%;
+    border: 1px solid #E0DFDE;
+    border-radius: 5px;
+}
+
+
+/* product season */
+.season-select__label {
+    margin-right: 50px;
+    font-weight: 300;
     cursor: pointer;
-    font-size: 16px;
-    user-select: none;
-} */
+}
 
 /* チェックボックスを隠す */
 /* .season-select__checkbox {
@@ -48,35 +80,100 @@
 
 /* 丸いカスタムチェックボックス */
 /* .custom-checkbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #0085FF;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #4B4B4B;
     border-radius: 50%;
     display: inline-block;
     position: relative;
-    transition: background 0.3s, border 0.3s;
 } */
 
 /* 選択時に背景を変える */
 /* .season-select__checkbox:checked + .custom-checkbox {
-    background-color: #0085FF;
-    border-color: #0085FF;
+    background-color: #4B4B4B;
 } */
 
 /* チェックマークを追加 */
 /* .season-select__checkbox:checked + .custom-checkbox::after {
-    content: "";
+    content: "✔︎";
     width: 10px;
     height: 10px;
-    background: white;
+    color: white;
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
 } */
 
-/* ホバー時のアニメーション */
-/* .season-select__label:hover .custom-checkbox {
-    border-color: #005FCC;
-} */
+
+/* product description textarea */
+.product-description {
+    margin-bottom: 30px;
+}
+
+.description-textarea {
+    padding: 10px;
+    width: 100%;
+    height: 160px;
+    border: 1px solid #E0DFDE;
+    border-radius: 5px;
+}
+
+
+/* back button and save button */
+.button__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-back,
+.btn-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-back {
+    background-color: #E0DFDE;
+    text-decoration: none;
+    color: #4B4B4B;
+}
+
+.btn-save {
+    background-color: #F5C800;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* delete button */
+.delete-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+}
+
+.btn-delete {
+    position: absolute;
+    top: -100%;
+    right: 20px;
+    transform: translateY(50%);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.btn-delete img {
+    background-color: transparent;
+}
