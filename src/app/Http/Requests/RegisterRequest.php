@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required',
             'price' => 'required|numeric|min:0|max:10000',
             'seasons' => 'required',
-            'image' => 'required|mimes:png, jpeg',
+            'image' => 'required|mimes:png,jpeg',
             'description' => 'required|max:120',
         ];
     }
