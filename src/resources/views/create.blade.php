@@ -6,14 +6,15 @@
 
 @section('content')
 <section class="register-container">
-    <p class="title">商品一覧</p>
+    <h1 class="title">商品登録</h1>
 
     <form class="form" action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <!-- name -->
         <div class="product__group">
             <p class="product__item">商品名</p>
-            <input type="text" class="product__input" name="name" placeholder="商品名を入力">
+            <span class="required-text">必須</span>
+            <input type="text" class="product__input" name="name" placeholder="商品名を入力" value="{{ old('name') }}">
 
             <!-- validation message -->
             @error('name')
@@ -24,7 +25,8 @@
         <!-- price -->
         <div class="product__group">
             <p class="product__item">値段</p>
-            <input type="text" class="product__input" name="price" placeholder="値段を入力">
+            <span class="required-text">必須</span>
+            <input type="text" class="product__input" name="price" placeholder="値段を入力" value="{{ old('price') }}">
 
             <!-- validation message -->
             @error('price')
@@ -35,7 +37,8 @@
         <!-- image -->
         <div class="product__group">
             <p class="product__item">商品画像</p>
-            <input type="file" class="product__input" name="image">
+            <span class="required-text">必須</span>
+            <input type="file" class="product__img-input" name="image">
 
             <!-- validation message -->
             @error('image')
@@ -46,17 +49,21 @@
         <!-- season -->
         <div class="product__group">
             <p class="product__item">季節</p>
+            <span class="required-text">必須</span>
+            <span class="multiple-select-text">複数選択可</span>
 
-            @foreach ($seasons as $season)
-                <label for="season-{{ $season->id }}" class="season-select__label">
-                <input type="checkbox" id="season-{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" class="season-select__checkbox">
-                <span class="custom-checkbox"></span>
-                {{ $season->name }}
-                </label>
-            @endforeach
+            <div class="select-group">
+                @foreach ($seasons as $season)
+                    <label for="season-{{ $season->id }}" class="season-select__label">
+                    <input type="checkbox" id="season-{{ $season->id }}" name="seasons[]" value="{{ $season->id }}" class="season-select__checkbox" {{ is_array(old('seasons')) && in_array($season->id, old('seasons')) ? 'checked' : '' }}>
+                    <span class="custom-checkbox"></span>
+                    {{ $season->name }}
+                    </label>
+                @endforeach
+            </div>
 
             <!-- validation message -->
-            @error('season')
+            @error('seasons')
                 <p class="form__error-msg">{{ $message }}</p>
             @enderror
         </div>
@@ -64,7 +71,8 @@
         <!-- description -->
         <div class="product__description">
             <p class="product__item">商品説明</p>
-            <textarea name="description" class="description__input"></textarea>
+            <span class="required-text">必須</span>
+            <textarea name="description" class="description__textarea" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
 
             <!-- validation message -->
             @error('description')
