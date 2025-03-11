@@ -7,20 +7,26 @@
 @section('content')
 <div class="container">
     <div class="title__wrapper">
-        <p class="title">商品一覧</p>
+        <p class="title">
+            @if(request('name'))
+            “{{ request('name') }}”の検索結果
+            @else
+                商品一覧
+            @endif
+        </p>
         <a href="{{ route('products.create') }}" class="btn__store-product">
             <button class="btn__add-product">+ 商品を追加</button>
         </a>
     </div>
 
     <section class="product-list-wrapper">
-        <!-- Search form -->
+        <!-- search form -->
         <form class="search__form" action="{{ route('products.search') }}" method="get">
             <!-- Search by name -->
             <input type="text" class="input-search" name="name" value="{{ request('name') }}" placeholder="商品名で検索">
             <button type="submit" class="btn-search">検索</button>
 
-            <!-- Sort by price -->
+            <!-- sort by price -->
             <div class="sort__group">
                 <p class="sort-title">価格順で表示</p>
 
